@@ -1,0 +1,101 @@
+/* your-component.component.css */
+.container {
+    max-width: 100%; /* Changed from 120% to 100% */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Added to allow horizontal scrolling if needed */
+}
+
+.filterType {
+    width: 100%; /* Set to 100% to ensure it scales with the container */
+}
+
+.container div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+select, input[type="text"], input[type="date"] {
+    width: 100%; /* Ensures inputs take full width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%; /* Ensures button takes full width on smaller screens */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: auto; /* Added to adjust table columns based on content */
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    white-space: nowrap; /* Keeps content in cells from wrapping */
+}
+
+table thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+table thead th {
+    font-weight: bold;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tbody tr:hover {
+    background-color: #ddd;
+}
+
+.no-results {
+    color: #d9534f;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+}
+.custom-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: red; /* Your desired background color */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.custom-button:hover {
+    background-color: red; /* Your desired hover color */
+}
+

@@ -1,0 +1,37 @@
+<mat-card class="profile-card">
+    <mat-card-header>
+      <mat-card-title-group *ngIf="!isEditMode" class="profile-title-group">
+        <div class="profile-image-wrapper">
+          <img mat-card-lg-image class="profile-image" src="./assets/cruise.png" alt="Profile Image">
+        </div>
+        <div class="profile-info">
+          <mat-card-title class="profile-name">{{ user.name }}</mat-card-title>
+          <mat-card-subtitle class="profile-email">{{ user.email }}</mat-card-subtitle>
+          <mat-card-subtitle class="profile-phone">{{ user.phonenumber }}</mat-card-subtitle>
+          <mat-card-subtitle class="profile-phone">{{ user.address }}</mat-card-subtitle>
+        </div>
+      </mat-card-title-group>
+  
+      <mat-card-title-group *ngIf="isEditMode" class="profile-edit-group">
+        <div class="profile-input-group">
+          <input type="text" [(ngModel)]="user.name" placeholder="Name" class="profile-input">
+          <input type="email" [(ngModel)]="user.email" placeholder="Email" class="profile-input">
+          <input type="tel" [(ngModel)]="user.phonenumber" placeholder="Phone number" class="profile-input">
+          <input type="tel" [(ngModel)]="user.address" placeholder="Adress" class="profile-input">
+        </div>
+        <div class="profile-image-wrapper">
+          <img mat-card-lg-image class="profile-image" src="./assets/cruise.png" alt="Profile Image">
+        </div>
+      </mat-card-title-group>
+    </mat-card-header>
+    
+    <mat-card-content class="profile-card-content">
+      <ng-container *ngIf="!isEditMode">
+        <button type="button" class="btn btn-primary btn-sm" (click)="enableEditMode()">Edit Profile</button>
+      </ng-container>
+      <ng-container *ngIf="isEditMode">
+        <button type="button" class="btn btn-success btn-sm" (click)="updateprofile(); disableEditMode()">Update</button>
+      </ng-container>
+    </mat-card-content>
+  </mat-card>
+  

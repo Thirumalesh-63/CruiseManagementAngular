@@ -1,0 +1,34 @@
+<div class="container">
+    <h2>Cruiselines</h2>
+    <button mat-raised-button (click)="addData()" class="demo-button">
+      Add cruiseline
+    </button>
+    <div class="table-pagination">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">Cruiseline Id</th>
+            <th class="text-center">Cruiseline Name</th>
+            <th class="text-center">headquarters</th>
+            <th class="text-center">contactnumber</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Cruiseline of cruiselines">
+            <td class="text-center">{{ Cruiseline.id }}</td>
+            <td class="text-center">{{ Cruiseline.name }}</td>
+            <td class="text-center">{{ Cruiseline.headquarters }}</td>
+            <td class="text-center">{{ Cruiseline.contactnumber }}</td>
+            <td class="text-center">
+              <button class="btn btn-primary" (click)="editExam(Cruiseline)">Edit</button>
+              <span style="margin-right: 20px;"></span>
+              <button class="btn btn-danger" (click)="deleteExam(Cruiseline.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="onPageChange()"></mat-paginator> -->
+    </div>
+  </div>
+  

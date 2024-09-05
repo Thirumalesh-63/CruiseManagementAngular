@@ -1,0 +1,46 @@
+<div class="container">
+    <h2>Cruises</h2>
+    <button mat-raised-button (click)="addData()" class="demo-button">
+      Add Cruise
+    </button>
+    <div class="table-pagination">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="text-center">Cruise Id</th>
+            <th class="text-center">Cruise Name</th>
+            <th class="text-center">ship Name</th>
+            <th class="text-center">startdestination</th>
+            <th class="text-center">enddestination</th>
+            <th class="text-center">itinerary</th>
+            <th class="text-center">startdate</th>
+            <th class="text-center">enddate</th>
+            <th class="text-center">price</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cruise of cruises">
+            <td class="text-center">{{ cruise.id }}</td>
+            <td class="text-center">{{ cruise.cruiseName }}</td>
+            <td class="text-center">{{ cruise.ship.name }}</td>
+            <td class="text-center">{{ cruise.startdestination }}</td>
+            <td class="text-center">{{ cruise.enddestination }}</td>
+            <td class="text-center">{{ cruise.itinerary }}</td>
+            <td class="text-center">{{ cruise.startdate }}</td>
+            <td class="text-center">{{ cruise.enddate }}</td>
+            <td class="text-center">{{ cruise.price }}</td>
+            <td class="text-center">
+              <!-- <button class="btn btn-primary" (click)="editExam(cruise)">Edit</button> -->
+              <i class="fas fa-edit" style="color: blue;" (click)="editExam(cruise)"></i>
+
+              <span style="margin-right: 20px;"></span>
+              <i class="fas fa-trash" style="color: red;" (click)="deleteExam(cruise.id)"></i>
+              <!-- <button class="btn btn-danger" (click)="deleteExam(cruise.name)">Delete</button> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- <mat-paginator [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="onPageChange()"></mat-paginator> -->
+    </div>
+  </div>

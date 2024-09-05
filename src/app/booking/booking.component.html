@@ -1,0 +1,63 @@
+<div class="container">
+    <div>
+      <label for="filterType">Filter by:</label>
+      <select id="filterType" [(ngModel)]="filterType">
+        <option value="user">User</option>
+        <option value="cruiseline">Cruiseline</option>
+        <option value="cruise">Cruise</option>
+        <option value="startdestination">Start Destination</option>
+        <option value="enddestination">End Destination</option>
+        <option value="date">Date Range</option>
+      </select>
+    </div>
+  
+    <div *ngIf="filterType !== 'date'">
+      <label for="filterValue">Enter Value:</label>
+      <input id="filterValue" [(ngModel)]="filterValue" placeholder="Enter value based on filter type" />
+    </div>
+    
+   <div *ngIf="filterType === 'date'">
+      <label for="startDate">Start Date:</label>
+      <input id="startDate" type="date" [(ngModel)]="startDate" />
+      
+      <label for="endDate">End Date:</label>
+      <input id="endDate" type="date" [(ngModel)]="endDate" />
+    </div> 
+  
+    <button (click)="getBookings()">Search</button>
+  
+    <div *ngIf="bookings.length; else noResults">
+        <h3>Bookings:</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>User</th>
+              <th>CruiseName</th>
+              <th>Booking date</th>
+              <th>startdestination</th>
+              <th>enddestination</th>
+              <th>Payment</th>
+              <!-- Add or modify headers based on your booking properties -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let booking of bookings">
+              <td>{{ booking.id }}</td>
+              <td>{{ booking.user.name }}</td>
+              <td>{{ booking.cruise.cruiseName }}</td>
+              <td>{{ booking.bookingDate }}</td>
+              <td>{{ booking.cruise.startdestination }}</td>
+              <td>{{ booking.cruise.enddestination }}</td>
+              <td>{{ booking.payment }}</td>
+              <!-- Add or modify cells based on your booking properties -->
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  
+    <ng-template #noResults>
+      <p class="no-results">No bookings found.</p>
+    </ng-template>
+  </div>
+  

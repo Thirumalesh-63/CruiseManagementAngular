@@ -1,0 +1,38 @@
+/* Container styling */
+.sidenav-container {
+    width: 250px;
+    color: white;
+    background-color: #8c9fb9; /* Dark background */
+    height: 100vh; /* Full height */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* List styling */
+  .sidenav-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: white;
+  }
+  
+  /* Link styling */
+  .sidenav-list a {
+    display: block;
+    padding: 15px 20px;
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+  }
+  
+  /* Hover effect for links */
+  .sidenav-list a:hover {
+    background-color: #7da4e2; /* Slightly lighter background on hover */
+  
+    color: #ffffff; /* Ensure the text stays white on hover */
+  }
+  
+  
+  

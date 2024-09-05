@@ -1,0 +1,119 @@
+<mat-card *ngIf="!isEditOperation">
+
+    <mat-card-title>Add Cruise</mat-card-title>
+  
+    <mat-card-content>
+  
+      <form #subjectForm="ngForm" (ngSubmit)="onSubmit(subjectForm)">
+  
+       <mat-form-field>
+   
+           <input matInput placeholder="Cruise Name" name="cruiseName" ngModel required >
+  
+         </mat-form-field>
+         <mat-form-field appearance="fill">
+            <mat-label>Ship</mat-label>
+            <mat-select placeholder="Select a ship" name="ship" [(ngModel)]="selectedShip" required>
+              <mat-option *ngFor="let ship of ships" [value]="ship">
+                {{ ship.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+   
+            <input matInput placeholder="startdestination" name="startdestination" ngModel required >
+   
+          </mat-form-field>
+          <mat-form-field>
+   
+            <input matInput placeholder="enddestination" name="enddestination" ngModel required >
+   
+          </mat-form-field>
+          <mat-form-field>
+   
+            <input matInput placeholder="itinerary" name="itinerary" ngModel required >
+   
+          </mat-form-field>
+          <mat-form-field>
+   
+            <input matInput placeholder="startdate" name="startdate" ngModel required >
+   
+          </mat-form-field>
+          <mat-form-field>
+   
+            <input matInput placeholder="enddate" name="enddate" ngModel required >
+   
+          </mat-form-field>
+          <mat-form-field>
+   
+            <input matInput placeholder="price" name="price" ngModel required >
+   
+          </mat-form-field>
+  
+       <button mat-raised-button color="primary" type="submit">Add Cruiseline</button>
+  
+     </form>
+  
+     </mat-card-content>
+  
+   </mat-card>
+  
+  <mat-card *ngIf="isEditOperation">
+  
+    <mat-card-title>Edit Subject</mat-card-title>
+  
+    <mat-card-content>
+  
+      <form #editSubjectForm="ngForm" (ngSubmit)="onEditSubmit(editSubjectForm)">
+  
+      
+        <mat-form-field>
+   
+            <input matInput placeholder="Cruise Name" name="cruiseName" [(ngModel)]="cruise.cruiseName" required >
+   
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+             <mat-label>Ship</mat-label>
+             <mat-select placeholder="Select a ship" name="ship" [(ngModel)]="selectedShip" required>
+               <mat-option *ngFor="let ship of ships" [value]="ship">
+                 {{ ship.name }}
+               </mat-option>
+             </mat-select>
+           </mat-form-field>
+           <mat-form-field>
+    
+             <input matInput placeholder="startdestination" name="startdestination" [(ngModel)]="cruise.startdestination" required >
+    
+           </mat-form-field>
+           <mat-form-field>
+    
+             <input matInput placeholder="enddestination" name="enddestination" [(ngModel)]="cruise.enddestination" required >
+    
+           </mat-form-field>
+           <mat-form-field>
+    
+             <input matInput placeholder="itinerary" name="itinerary" [(ngModel)]="cruise.itinerary" required >
+    
+           </mat-form-field>
+           <mat-form-field>
+    
+             <input matInput placeholder="startdate" name="startdate" [(ngModel)]="cruise.startdate" required >
+    
+           </mat-form-field>
+           <mat-form-field>
+    
+             <input matInput placeholder="enddate" name="enddate" [(ngModel)]="cruise.enddate" required >
+    
+           </mat-form-field>
+           <mat-form-field>
+    
+             <input matInput placeholder="price" name="price" [(ngModel)]="cruise.price" required >
+    
+           </mat-form-field>
+       <button mat-raised-button color="primary" type="submit">Save Changes</button>
+  
+     </form>
+  
+     </mat-card-content>
+  
+   </mat-card>

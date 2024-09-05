@@ -1,0 +1,62 @@
+<mat-card *ngIf="!isEditOperation">
+
+    <mat-card-title>Add Cruiseline</mat-card-title>
+  
+    <mat-card-content>
+  
+      <form #subjectForm="ngForm" (ngSubmit)="onSubmit(subjectForm)">
+  
+       <mat-form-field>
+   
+           <input matInput placeholder="cruiseline Name" name="name" ngModel required >
+  
+         </mat-form-field>
+         <mat-form-field>
+   
+            <input matInput placeholder="headquarters" name="headquarters" ngModel required >
+   
+          </mat-form-field>
+          <mat-form-field>
+   
+            <input matInput placeholder="contactnumber" name="contactnumber" ngModel required >
+   
+          </mat-form-field>
+  
+       <button mat-raised-button color="primary" type="submit">Add Cruiseline</button>
+  
+     </form>
+  
+     </mat-card-content>
+  
+   </mat-card>
+  
+  <mat-card *ngIf="isEditOperation">
+  
+    <mat-card-title>Edit Cruiseline</mat-card-title>
+  
+    <mat-card-content>
+  
+      <form #editSubjectForm="ngForm" (ngSubmit)="onEditSubmit(editSubjectForm)">
+  
+        <mat-form-field>
+   
+            <input matInput placeholder="cruiseline Name" name="name" [(ngModel)]="cruiseline.name" required >
+   
+          </mat-form-field>
+          <mat-form-field>
+    
+             <input matInput placeholder="headquarters" name="headquarters" [(ngModel)]="cruiseline.headquarters" required >
+    
+           </mat-form-field>
+           <mat-form-field>
+    
+             <input matInput placeholder="contactnumber" name="contactnumber" [(ngModel)]="cruiseline.contactnumber" required >
+    
+           </mat-form-field>
+       <button mat-raised-button color="primary" type="submit">Save Changes</button>
+  
+     </form>
+  
+     </mat-card-content>
+  
+   </mat-card>

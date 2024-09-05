@@ -1,0 +1,71 @@
+<mat-card *ngIf="!isEditOperation">
+
+    <mat-card-title>Add Ship</mat-card-title>
+  
+    <mat-card-content>
+  
+      <form #subjectForm="ngForm" (ngSubmit)="onSubmit(subjectForm)">
+  
+       <mat-form-field>
+   
+           <input matInput placeholder="Ship Name" name="name" ngModel required >
+  
+         </mat-form-field>
+         <mat-form-field appearance="fill">
+            <mat-label>Cruiseline</mat-label>
+            <mat-select placeholder="Select a cruiseline" name="cruiseline" [(ngModel)]="selectedCruiseline" required>
+              <mat-option *ngFor="let cruiseline of cruiselines" [value]="cruiseline">
+                {{ cruiseline.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <mat-form-field>
+   
+            <input matInput placeholder="capacity" name="capacity" ngModel required >
+   
+          </mat-form-field>
+  
+       <button mat-raised-button color="primary" type="submit">Add Cruiseline</button>
+  
+     </form>
+  
+     </mat-card-content>
+  
+   </mat-card>
+  
+  <mat-card *ngIf="isEditOperation">
+  
+    <mat-card-title>Edit Subject</mat-card-title>
+  
+    <mat-card-content>
+  
+      <form #editSubjectForm="ngForm" (ngSubmit)="onEditSubmit(editSubjectForm)">
+  
+       <mat-form-field>
+   
+        <input matInput placeholder="Ship Name" name="name" [(ngModel)]="ship.name" required >
+
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+         <mat-label>Cruiseline</mat-label>
+         <mat-select placeholder="Select a cruiseline" name="cruiseline" [(ngModel)]="selectedCruiseline" required>
+           <mat-option *ngFor="let cruiseline of cruiselines" [value]="cruiseline">
+             {{ cruiseline.name }}
+           </mat-option>
+         </mat-select>
+       </mat-form-field>
+       
+       <mat-form-field>
+
+         <input matInput placeholder="capacity" name="capacity" [(ngModel)]="ship.capacity" required >
+
+       </mat-form-field>
+  
+       <button mat-raised-button color="primary" type="submit">Save Changes</button>
+  
+     </form>
+  
+     </mat-card-content>
+  
+   </mat-card>

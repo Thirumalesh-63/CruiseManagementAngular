@@ -1,0 +1,27 @@
+<table class="table table-hover table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Booking ID</th>
+        <th scope="col">Cruise Name</th>
+        <th scope="col">Start Destination</th>
+        <th scope="col">End Destination</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ booking.id }}</td>
+        <td>{{ booking.cruise?.cruiseName }}</td>
+        <td>{{ booking.cruise?.startdestination }}</td>
+        <td>{{ booking.cruise?.enddestination }}</td>
+        <td>{{ booking.cruise?.startdate | date: 'shortDate' }}</td>
+        <td>{{ booking.cruise?.enddate | date: 'shortDate' }}</td>
+        <td>{{ booking.cruise?.price | currency }}</td>
+      </tr>
+    </tbody>
+  </table>
+  

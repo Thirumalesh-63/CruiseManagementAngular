@@ -1,0 +1,70 @@
+<div class="container">
+    <div>
+      <label for="filterType">Filter by:</label>
+      <select id="filterType"  class=filterType [(ngModel)]="filterType">
+        <option value="startdestination">Cruises Start Destination</option>
+        <option value="enddestination">Cruises End Destination</option>
+        <option value="cruiseline">Cruises Cruiseline</option>
+        <option value="ship">Cruises Ship</option>
+        <option value="cruise">Cruises CruiseName</option>
+        <option value="date">Date Range</option>
+      </select>
+    </div>
+  
+    <div *ngIf="filterType !== 'date'">
+      <label for="filterValue">Enter Value:</label>
+      <input id="filterValue" [(ngModel)]="filterValue" placeholder="Enter value based on filter type" />
+    </div>
+    
+   <div *ngIf="filterType === 'date'">
+      <label for="startDate">Start Date:</label>
+      <input id="startDate" type="date" [(ngModel)]="startDate" />
+      
+      <label for="endDate">End Date:</label>
+      <input id="endDate" type="date" [(ngModel)]="endDate" />
+    </div> 
+  
+    <button (click)="getBookings()">Search</button>
+  
+    <div *ngIf="cruises.length; else noResults">
+        <h3>Bookings:</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>CruiseName</th>
+              <th>ShipName</th>
+              <th>startdestination</th>
+              <th>enddestination</th>
+              <th>itinerary</th>
+              <th>startdate</th>
+              <th>enddate</th>
+              <th>price</th>
+              <th>Book</th>
+              <!-- Add or modify headers based on your booking properties -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cruise of cruises">
+              <td>{{ cruise.id }}</td>
+              <td>{{ cruise.cruiseName }}</td>
+              <td>{{ cruise.ship?.name }}</td>
+              <td>{{ cruise.startdestination }}</td>
+              <td>{{ cruise.enddestination }}</td>
+              <td>{{ cruise.itinerary }}</td>
+              <td>{{ cruise.startdate }}</td>
+              <td>{{ cruise.enddate }}</td>
+              <td>{{ cruise.price }}</td>
+              <td><button type="button" class="custom-button" (click)="bookcruise(cruise.cruiseName)">Book</button></td>
+
+              <!-- Add or modify cells based on your booking properties -->
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  
+    <ng-template #noResults>
+      <p class="no-results">No bookings found.</p>
+    </ng-template>
+  </div>
+  
